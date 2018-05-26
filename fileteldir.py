@@ -21,11 +21,19 @@ def save_numbers(numbers, filename):
         out_file.write(x + "," + numbers[x] + "\n")
     out_file.close()
 
+def search_number(numbers, name):
+    if name in numbers:
+        return "The number is " + numbers[name]
+    else:
+        return name + " was not found"
+
 def print_menu():
     print '1. Print Phone Numbers and Names'
     print '2. Add a Phone Number'
     print '3. Load numbers'
     print '4. Save numbers'
+    print '5. Search a phone number'
+    print '6. Quit'
     print
 
 phone_list = {}
@@ -46,5 +54,11 @@ while True:
     elif menu_choice == 4:
         filename = raw_input("Filename to save: ")
         save_numbers(phone_list, filename)
+    elif menu_choice == 5:
+        print "Search Number"
+        name = raw_input("Name: ")
+        print search_number(phone_list, name)
+    elif menu_choice == 6:
+        break
     else:
         print_menu()
